@@ -1,16 +1,61 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { Text, ScrollView, FlatList } from 'react-native';
+import { Card, ListItem } from 'react-native-elements';
+import { PARTNERS } from '../shared/partners';
+
+//Week 1 Task 3 Created Mission function
+function Mission() {
+  return(
+    <Card
+      title='Our Mission'
+    >
+      <Text style={{margin: 10}}>
+        We present a curated database of the best campsites in the vast woods and backcountry of the World Wide Web Wilderness. We increase access to adventure for the public while promoting safe and respectful use of resources. The expert wilderness trekkers on our staff personally verify each campsite to make sure that they are up to our standards. We also present a platform for campers to share reviews on campsites they have visited with each other.
+      </Text>
+    </Card>
+  )
+}
 
 //Week 1 Task 1
 class About extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      partners: PARTNERS
+    };
+  }
+
   static navigationOptions = {
     title: 'About Us'
   }
+  //Week 1 Task 3 Mission and renderPartner in the Card
   render() {
+
+    const renderPartner = ({item}) => {
+      return(
+        <ListItem
+          title={item.name}
+          subtitle={item.description}
+          leftAvatar={{ srouce: require('./images/boostrap-logo.png')}}
+        />
+      );
+    };
+
     return(
-      <ScrollView></ScrollView>
-    )
+      <ScrollView>
+        <Mission/>
+        <Card
+          title='Community Partners'
+        >
+          <FlatList 
+            data={this.state.partners}
+            renderItem={renderPartner}
+            keyExtractor={item => item.id.toString()}
+          />
+        </Card>
+      </ScrollView>
+    );
   }
 }
 
