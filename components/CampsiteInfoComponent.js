@@ -42,7 +42,7 @@ function RenderCampsite(props) {
               console.log('Already set as favorite') : props.markFavorite()}
           />
           <Icon
-            name='pencil'
+            name={'pencil'}
             type='font-awesome'
             color='#5637DD'
             raised
@@ -158,18 +158,18 @@ class CampsiteInfo extends Component {
             <Input
               placeholder='Author'
               leftIcon={{ type: 'font-awesome', name: 'user-o' }}
-              leftIconContainerStyle={{paddingRight: 10}}
+              leftIconContainerStyle={{ paddingRight: 10 }}
               onChangeText={(author) => this.setState({author: author})}
               value={this.state.author}
             />
             <Input
               placeholder='Comment'
               leftIcon={{ type: 'font-awesome', name: 'comment-o'}}
-              leftIconContainerStyle={{paddingRight: 10}}
+              leftIconContainerStyle={{ paddingRight: 10 }}
               onChangeText={(text) => this.setState({text: text})}
               value={this.state.text}
             />
-            <View>
+            <View style={{ margin: 10 }}>
               <Button
                 title='Submit'
                 color='#5637DD'
@@ -179,7 +179,7 @@ class CampsiteInfo extends Component {
                 }}
               />
             </View>
-            <View style={{margin: 10}}>
+            <View style={{ margin: 10 }}>
               <Button
                 onPress={() => {
                   this.toggleModal();
