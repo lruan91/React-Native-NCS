@@ -19,6 +19,7 @@ const mapDispatchToProps = {
   postComment: (campsiteId, rating, author, text) => (postComment(campsiteId, rating, author, text))
 };
 // Week 2 Task 1: Added a Pencil Icon/added view style cardRow
+// Week 4 Task 3: Add recognizeCommentand use inside the onPanResponderEnd
 function RenderCampsite(props) {
 
   const {campsite} = props;
@@ -26,6 +27,8 @@ function RenderCampsite(props) {
   const view = React.createRef();
 
   const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
+
+  const recognizeComment = ({dx}) => (dx > 200 ) ? true: false;
 
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
@@ -53,6 +56,8 @@ function RenderCampsite(props) {
           ],
           { cancelable: false }
         );
+      } else if (recognizeComment(gestureState)) {
+        props.onShowModal();
       }
       return true;
     }
