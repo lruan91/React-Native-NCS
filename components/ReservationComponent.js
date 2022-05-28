@@ -24,7 +24,7 @@ class Reservation extends Component {
   // toggleModal() {
   //   this.setState({showModal: !this.state.showModal});
   // }
-// Week 4 Task 2: Remove the Modal and add an Alert
+// Week 3 Task 2: Remove the Modal and add an Alert
   handleReservation() {
     console.log(JSON.stringify(this.state));
     // this.toggleModal();
@@ -62,7 +62,7 @@ class Reservation extends Component {
         // showModal: false
       });
     }
-// Week 4 Task 1: Create an AnimtableView for zoomIn
+// Week 3 Task 1: Create an AnimtableView for zoomIn
   render() {
     return(
       <ScrollView>
