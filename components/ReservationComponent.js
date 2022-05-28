@@ -32,7 +32,7 @@ class Reservation extends Component {
       'Begin Search?',
       'Number of Campers: ' + this.state.campers  +
       '\n\n Hike-In? ' + this.state.hikeIn +
-      '\n\n Date: ' + this.state.date,
+      '\n\n Date: ' + this.state.date.toLocaleDateString('en-US'),
       [
         {
           text: 'Cancel',
@@ -45,6 +45,7 @@ class Reservation extends Component {
         {
           text: 'OK',
           onPress: () => {
+            this.presentLocaleNotification(this.state.date.toLocaleDateString('en-US'))
             this.resetForm();
           }
         },
